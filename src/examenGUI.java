@@ -30,13 +30,16 @@ public class examenGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int codigo= Integer.parseInt(txtCodigo.getText());
-                    String nombre=txtNombre.getText();
-                    String poder=txtPoder.getText();
-                    String nivelHabilidad=txtHabilidad.getText();
-                    int misionActiva=Integer.parseInt(txtMision.getText());
+                    int codigo = Integer.parseInt(txtCodigo.getText());
+                    String nombre = txtNombre.getText();
+                    String poder = txtPoder.getText();
+                    String nivelHabilidad = txtHabilidad.getText();
+                    int misionActiva = Integer.parseInt(txtMision.getText());
 
-                }catch (Exception ex){
+                    YoungAvenger nuevoAvenger = new YoungAvenger(codigo, nombre, poder, nivelHabilidad, misionActiva);
+                    avenger.agregarAvenger(nuevoAvenger);
+                    txtResultado.setText("Avenger agregado con éxito!");
+                } catch (Exception ex) {
                     txtResultado.setText("Error al registrar el Avenger: " + ex.getMessage());
                 }
             }
