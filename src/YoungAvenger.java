@@ -7,7 +7,7 @@ public class YoungAvenger {
     public String nivelHabilidad;
     public int misionActiva;
     public int tamanio;
-    public Nodo inicio;
+    public NodoAvengers inicio;
 
     public YoungAvenger(int codigo, String nombre, String poder, String nivelHabilidad, int misionActiva) {
         this.codigo = codigo;
@@ -17,6 +17,9 @@ public class YoungAvenger {
         this.misionActiva = misionActiva;
         this.tamanio= 0;
         this.inicio=null;
+    }
+
+    public YoungAvenger() {
     }
 
     public int getMisionActiva() {
@@ -40,11 +43,11 @@ public class YoungAvenger {
     }
 
     public void agregarAvenger(YoungAvenger dato, JTextArea textArea){
-        Nodo nuevo= new Nodo(dato);
+        NodoAvengers nuevo= new NodoAvengers(dato);
         if (inicio==null){
             inicio=nuevo;
         } else{
-            Nodo actual = inicio;
+            NodoAvengers actual = inicio;
             while(actual.sig != null){
                 actual= actual.sig;
 
@@ -54,7 +57,7 @@ public class YoungAvenger {
         tamanio++;
     }
     public int buscarAvenger(YoungAvenger dato, JTextArea textArea){
-        Nodo actual = inicio;
+        NodoAvengers actual = inicio;
         int posicion = 0;
         while (actual != null) {
 
@@ -68,7 +71,7 @@ public class YoungAvenger {
     }
 
     public int ordenarAvenger(YoungAvenger dato){
-        Nodo actual = inicio;
+        NodoAvengers actual = inicio;
         int posicion = 0;
         while (actual != null) {
 
@@ -80,19 +83,22 @@ public class YoungAvenger {
         }
         return -1;
     }
-public void mostrarAvenger(JTextArea textArea){
+
+    public void mostrarAvenger(JTextArea textArea){
     if (inicio == null) {
         textArea.setText("La lista está vacía!");
     } else {
         StringBuilder listaStr = new StringBuilder();
-        Nodo actual = inicio;
+        NodoAvengers actual = inicio;
         while (actual != null) {
             listaStr.append(actual.dato).append("\n");
             actual = actual.sig;
         }
-        textArea.setText((listaStr.toString()));
+    }
+}
+    public int calcularMision(){
+        return 1;
     }
 
-}
 }
 

@@ -18,17 +18,36 @@ public class examenGUI {
     private JButton avengersSinPoderButton;
     private JButton mostrarAvengersButton;
     private JButton calcularMisionesButton;
+    private JLabel txtPoder;
+    private JLabel txtHabilidad;
+    private JLabel txtMision;
+    private JScrollBar scrollBar1;
+    private JScrollBar scrollBar2;
+    private YoungAvenger avenger=new YoungAvenger();
 
     public examenGUI() {
         agregarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    int codigo= Integer.parseInt(txtCodigo.getText());
+                    String nombre=txtNombre.getText();
+                    String poder=txtPoder.getText();
+                    String nivelHabilidad=txtHabilidad.getText();
+                    int misionActiva=Integer.parseInt(txtMision.getText());
 
+                }catch (Exception ex){
+                    txtResultado.setText("Error al registrar el Avenger: " + ex.getMessage());
+                }
             }
         });
         mostrarAvengersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int codigo=Integer.parseInt(txtCodigo.getText());
+
+
+
 
             }
         });
@@ -36,11 +55,16 @@ public class examenGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                int codigo=Integer.parseInt((txtCodigo.getText()));
+
+
+
             }
         });
         avengersSinPoderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });
@@ -62,5 +86,13 @@ public class examenGUI {
 
             }
         });
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("examenGUI");
+        frame.setContentPane(new examenGUI().pGeneral);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
