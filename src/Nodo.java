@@ -6,4 +6,5 @@ public class Nodo {
         this.dato= dato;
         this.sig=null;
     }
+
 }
