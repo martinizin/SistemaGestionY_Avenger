@@ -12,7 +12,7 @@ public class examenGUI {
     private JTextField txtNombre;
     private JComboBox<String> comboBox1; // Poder
     private JComboBox<Integer> comboBox2; // Nivel de habilidad
-    private JComboBox<Integer> comboBox3; // Misión activa
+    private JComboBox<String> comboBox3; // Misión activa
     private JButton buscarBtn;
     private JTable table1;
     private JButton ordenarBtn;
@@ -33,10 +33,6 @@ public class examenGUI {
             comboBox2.addItem(i);
         }
 
-        // Agregamos misiones activas (0 a 5)
-        for (int i = 0; i <= 5; i++) {
-            comboBox3.addItem(i);
-        }
 
         // Configuramos la tabla
         String[] columnNames = {"Código", "Nombre", "Poder", "Nivel de Habilidad", "Misión Activa"};
@@ -53,11 +49,11 @@ public class examenGUI {
                     int codigo = Integer.parseInt(txtCodigo.getText());  // Convierte el código a Integer
                     String nombre = txtNombre.getText();
                     String poder = (String) comboBox1.getSelectedItem();  // Obtén el poder como String
-                    String nivelHabilidad = (String) comboBox2.getSelectedItem();  // Obtén el nivel de habilidad como Integer
-                    Integer misionActiva = (Integer) comboBox3.getSelectedItem();  // Obtén la misión activa como Integer
+                    Integer nivelHabilidad = (Integer) comboBox2.getSelectedItem();  // Obtén el nivel de habilidad como Integer
+                    String misionActiva = (String) comboBox3.getSelectedItem();  // Obtén la misión activa como Integer
 
                     // Crear el nuevo YoungAvenger
-                    YoungAvenger nuevoAvenger = new YoungAvenger(codigo, nombre, poder, nivelHabilidad, misionActiva);
+                    YoungAvenger nuevoAvenger = new YoungAvenger();
 
                     // Agregar el Avenger a la lista
                     avenger.agregarAvenger(nuevoAvenger);
@@ -150,6 +146,7 @@ public class examenGUI {
             actual = actual.sig;
         }
     }
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("examenGUI");

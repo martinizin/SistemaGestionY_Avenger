@@ -10,14 +10,16 @@ public class YoungAvenger {
     public NodoAvengers inicio;
 
     // Constructor con todos los datos
-    public YoungAvenger(int codigo, String nombre, String poder, String nivelHabilidad, int misionActiva) {
+
+
+    public YoungAvenger(int codigo, String nombre, String poder, String nivelHabilidad, int misionActiva, int tamanio, NodoAvengers inicio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.poder = poder;
         this.nivelHabilidad = nivelHabilidad;
         this.misionActiva = misionActiva;
-        this.tamanio = 0;
-        this.inicio = null;
+        this.tamanio = tamanio;
+        this.inicio = inicio;
     }
 
     // Constructor vacío para usar en la clase GUI
@@ -129,16 +131,18 @@ public class YoungAvenger {
             textArea.setText(listaStr.toString());
         }
     }
-
     public int calcularMisionesActivas() {
-        int count = 0;
-        NodoAvengers actual = inicio;
+        int contador = 0;
+        NodoAvengers actual = inicio;  // asumiendo que 'inicio' es el primer nodo de la lista de Avengers
         while (actual != null) {
-            if (actual.dato.misionActiva > 0) {
-                count++;
+            if (actual.dato.misionActiva != 0) {
+                contador++;  // Contamos Avengers con misión activa diferente de 0
             }
-            actual = actual.sig;
+            actual = actual.sig;  // Pasamos al siguiente Avenger en la lista
         }
-        return count;
+        return contador;  // Retorna el número de Avengers con misiones activas
     }
+
+
+
 }
