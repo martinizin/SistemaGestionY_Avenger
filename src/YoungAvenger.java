@@ -22,8 +22,9 @@ public class YoungAvenger {
 
     // Constructor vacío para usar en la clase GUI
     public YoungAvenger() {
+        this.inicio = null;
+        this.tamanio = 0;
     }
-
 
     public void agregarAvenger(YoungAvenger dato) {
         NodoAvengers nuevo = new NodoAvengers(dato);
@@ -39,7 +40,6 @@ public class YoungAvenger {
         tamanio++;
     }
 
-
     public int buscarAvenger(int codigo) {
         NodoAvengers actual = inicio;
         int posicion = 0;
@@ -52,7 +52,6 @@ public class YoungAvenger {
         }
         return -1;
     }
-
 
     public void mostrarAvenger(JTextArea textArea) {
         if (inicio == null) {
@@ -72,7 +71,6 @@ public class YoungAvenger {
             textArea.setText(listaStr.toString());
         }
     }
-
 
     public void ordenarAvengers() {
         if (inicio == null || inicio.sig == null) {
@@ -95,7 +93,6 @@ public class YoungAvenger {
         }
     }
 
-
     public void avengersConPoder(JTextArea textArea) {
         if (inicio == null) {
             textArea.setText("La lista está vacía!");
@@ -115,7 +112,6 @@ public class YoungAvenger {
         }
     }
 
-    // Obtener Avengers sin poder
     public void avengersSinPoder(JTextArea textArea) {
         if (inicio == null) {
             textArea.setText("La lista está vacía!");
@@ -134,7 +130,6 @@ public class YoungAvenger {
         }
     }
 
-    // Calcular la cantidad de misiones activas
     public int calcularMisionesActivas() {
         int count = 0;
         NodoAvengers actual = inicio;

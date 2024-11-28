@@ -3,8 +3,7 @@ public class NodoAvengers {
     public NodoAvengers sig;
 
     public NodoAvengers(YoungAvenger dato) {
-        this.dato= dato;
-        this.sig=null;
+        this.dato = dato;
+        this.sig = null;
     }
-
 }
